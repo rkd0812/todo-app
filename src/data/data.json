@@ -1,0 +1,41 @@
+[
+  {
+  "id": "1",
+  "title": "Sample Board",
+  "bgColor": "rgb(210, 144, 52)",
+  "lists": [
+         {
+           "id": 1,
+           "boardId": "1",
+           "title": "To Do",
+           "pos": 1,
+           "cards": [
+             { "id": "1", "title": "test1", "description": "test desc", "pos": 1 },
+             { "id": "2", "title": "test2", "description": "test desc", "pos": 2 },
+             { "id": "3", "title": "test3", "description": "test desc", "pos": 3 },
+             { "id": "4", "title": "test4", "description": "test desc", "pos": 4 }
+           ]
+         },
+         {
+           "id": 2,
+           "boardId": "1",
+           "title": "Doing",
+           "pos": 2,
+           "cards": []
+         },
+         {
+           "id": 3,
+           "boardId": "1",
+           "title": "Done",
+           "pos": 3,
+           "cards": []
+         }
+     ]
+  },
+  {
+    "id": 2,
+    "title": "Sample Board2",
+    "bgColor": "rgb(81, 152, 57)",
+    "lists": []
+  }
+]
