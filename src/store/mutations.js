@@ -7,6 +7,9 @@ const mutations = {
   LOGOUT(state) {
     state.accessToken = null
     delete localStorage.accessToken
+  },
+  SET_IS_ADD_BOARD (state, toggle) {
+    state.isAddBoard = toggle
   }
 }
 
