@@ -3,6 +3,10 @@ const mutations = {
     if (!accessToken) return
     state.accessToken = accessToken
     localStorage.accessToken = accessToken;
+  },
+  LOGOUT(state) {
+    state.accessToken = null
+    delete localStorage.accessToken
   }
 }
 

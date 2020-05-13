@@ -14,6 +14,7 @@ const store = new Vuex.Store({
   actions
 })
 
+
 const { accessToken } = localStorage
 store.commit('LOGIN', { accessToken })
 

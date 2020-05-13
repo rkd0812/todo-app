@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h2>Login to KGURU-TODO</h2>
-    <form>
+    <form @submit.prevent="onSubmit">
       <div>
         <label for="email">Email</label>
         <input
@@ -21,7 +21,7 @@
             id="password"
             v-model="password"/>
       </div>
-      <button class="btn" :class="{'btn-success': !invalidForm}" type="submit" :disabled="invalidForm">Log In</button>
+      <button class="btn" type="submit" :class="{'btn-success': !invalidForm}" :disabled="invalidForm">Log In</button>
     </form>
     <p class="error" v-if="error">{{ error }}</p>
   </div>
@@ -41,6 +41,21 @@
     computed: {
       invalidForm() {
         return !this.email || !this.password
+      }
+    },
+    created() {
+      this.returnPath = this.$route.query.returnPath || '/'
+    },
+    methods: {
+      onSubmit () {
+        const { email, password } = this
+        this.$store.dispatch('LOGIN', { email, password })
+          .then(() => {
+            this.$router.push(this.returnPath)
+          })
+          .catch(() => {
+            //TODO: error
+          })
       }
     }
   }
