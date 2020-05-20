@@ -11,14 +11,31 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
   export default {
     name: "NavBar",
     computed: {
+      ...mapState({
+        navbarColor: 'navbarColor',
+        bodyColor: 'bodyColor'
+      }),
       isAuthenticated() {
         return this.$store.getters.isAuthenticated
       }
     },
+    watch: {
+      bodyColor: 'updateTheme',
+    },
+    mounted() {
+      this.updateTheme();
+    },
     methods: {
+      updateTheme() {
+        this.$el.style.backgroundColor = this.navbarColor
+        const body = document.querySelector('body')
+        if (!body) return
+        body.style.backgroundColor = this.backgroundColor
+      },
       logout() {
         this.$store.commit('LOGOUT')
         this.$router.push('/login')
