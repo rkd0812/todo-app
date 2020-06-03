@@ -4,6 +4,8 @@ import Home from "../view/Home";
 import NotFound from "../view/NotFound";
 import Login from "../view/Login";
 import store from '../store'
+import Board from "../view/Board";
+import Card from "../view/Card";
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,14 @@ export default new VueRouter({
     {
       path: '/login',
       component: Login
+    }, {
+      path: '/board/:id',
+      component: Board,
+      beforeEnter: requireAuth(),
+      children: [{
+        path: 'card/:cid',
+        component: Card
+      }]
     },
     {
       path: '*',
